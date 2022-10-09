@@ -5,7 +5,10 @@ import 'package:porj_final_app2/model/Pessoa.dart';
 import '../model/Componentes.dart';
 
 class Cadastrar extends StatefulWidget {
-  _Cadastrar createState() => _Cadastrar();
+  List<Pessoa> p = <Pessoa>[];
+  Cadastrar(this.p);
+
+  _Cadastrar createState() => _Cadastrar(p);
 }
 
 class _Cadastrar extends State<Cadastrar> {
@@ -15,7 +18,9 @@ class _Cadastrar extends State<Cadastrar> {
   TextEditingController descricao = TextEditingController();
   TextEditingController img = TextEditingController();
 
-  static List<Pessoa> ocorrencia = <Pessoa>[];
+  List<Pessoa> ocorrencia = <Pessoa>[];
+
+  _Cadastrar(this.ocorrencia);
 
   Widget build(BuildContext context) {
     return Column(
@@ -32,9 +37,9 @@ class _Cadastrar extends State<Cadastrar> {
         Button(
             onPressed: () {
               setState(() {
-                Pessoa p = Pessoa(nome.text, cpf.text, sexo.text,
+                Pessoa pessoa = Pessoa(nome.text, cpf.text, sexo.text,
                     new Ocorrencia(descricao.text, img.text));
-                ocorrencia.add(p);
+                ocorrencia.add(pessoa);
 
                 nome.text = "";
                 cpf.text = "";
@@ -42,7 +47,6 @@ class _Cadastrar extends State<Cadastrar> {
                 descricao.text = "";
                 img.text = "";
               });
-              print("deu certo");
             },
             label: "Registrar Ocorrência",
             btnColor: Colors.blue,

@@ -9,6 +9,14 @@ class Pessoa {
 
   Pessoa(this.nome, this.cpf, this.sexo, this.ocorrencia);
 
+  String getDescricao() {
+    return ocorrencia.getDescricao();
+  }
+
+  String getImg() {
+    return ocorrencia.getImg();
+  }
+
   @override
   String toString() {
     return "$id | $nome | $cpf | $sexo ";
@@ -28,9 +36,5 @@ class Pessoa {
 
   String getCpf() {
     return cpf;
-  }
-
-  Ocorrencia getOcorrencia() {
-    return ocorrencia;
   }
 }

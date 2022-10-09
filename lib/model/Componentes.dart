@@ -85,3 +85,33 @@ class Celula extends StatelessWidget {
     );
   }
 }
+
+class CheckBox extends StatefulWidget {
+  @override
+  static bool situacao = false;
+  String label;
+
+  CheckBox({Key? key, required this.label}) : super(key: key);
+
+  _CheckBox createState() => _CheckBox(label);
+}
+
+class _CheckBox extends State<CheckBox> {
+  String label;
+
+  _CheckBox(this.label);
+
+  Widget build(BuildContext context) {
+    return Row(children: [
+      Checkbox(
+          value: CheckBox.situacao,
+          onChanged: (opcao) {
+            setState(() {
+              CheckBox.situacao = opcao!;
+              print(CheckBox.situacao);
+            });
+          }),
+      Text(label)
+    ]);
+  }
+}

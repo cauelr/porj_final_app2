@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../model/Componentes.dart';
 import '../model/Pessoa.dart';
-import '../model/Ocorrencia.dart';
 
 class ListaOcorrencias extends StatelessWidget {
   List<Pessoa> getOcorrencia = <Pessoa>[];
@@ -33,6 +32,11 @@ class ListaOcorrencias extends StatelessWidget {
                 tamanho: 240,
                 cor: Color.fromARGB(255, 0, 63, 171),
                 textColor: Colors.amber),
+            Celula(
+                text: "Imagem",
+                tamanho: 240,
+                cor: Color.fromARGB(255, 0, 63, 171),
+                textColor: Colors.amber),
           ],
         ),
         for (int i = 0; i < getOcorrencia.length; i++)
@@ -53,11 +57,16 @@ class ListaOcorrencias extends StatelessWidget {
                   tamanho: 120,
                   cor: Colors.grey,
                   textColor: Colors.black),
-              // Celula(
-              //     text: "{$getOcorrencia[i].getOcorrencia()}",
-              //     tamanho: 120,
-              //     cor: Colors.grey,
-              //     textColor: Colors.black)
+              Celula(
+                  text: getOcorrencia[i].getDescricao(),
+                  tamanho: 120,
+                  cor: Colors.grey,
+                  textColor: Colors.black),
+              Celula(
+                  text: getOcorrencia[i].getImg(),
+                  tamanho: 120,
+                  cor: Colors.grey,
+                  textColor: Colors.black),
             ],
           )
       ],
